@@ -1,29 +1,24 @@
-package br.edu.unoesc.ads.produtos.entities;
+package br.edu.unoesc.ads.produtos.dto;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import br.edu.unoesc.ads.produtos.entities.Produto;
 
-@Entity
-public class Produto {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProdutoDTO {
+
 	private Long id;
 	private String nome;
 	private BigDecimal quantidade;
 	private BigDecimal valor;
 
-	public Produto() {
+	public ProdutoDTO() {
 	}
 
-	public Produto(Long id, String nome, BigDecimal quantidade, BigDecimal valor) {
-		this.id = id;
-		this.nome = nome;
-		this.quantidade = quantidade;
-		this.valor = valor;
+	public ProdutoDTO(Produto produto) {
+		this.id = produto.getId();
+		this.nome = produto.getNome();
+		this.quantidade = produto.getQuantidade();
+		this.valor = produto.getValor();
 	}
 
 	public Long getId() {
@@ -57,4 +52,5 @@ public class Produto {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
+
 }
